@@ -54,17 +54,22 @@ def main():
     ####################################
 
     # アクティブなExcelシートを取得する
-    xl = win32com.client.gencache.EnsureDispatch("Excel.Application")
-
-    if not xl.ActiveSheet:
-        logger.info("Excelが開かれていないため処理を終了します")
+    xl = win32com.client.Dispatch("Excel.Application")
+    if xl.ActiveSheet is None:
+        print("Excelが開かれていないため処理を終了します", end="")
+        for _ in range(0, 3):
+            print(".", end="", flush=True)
+            time.sleep(0.5)
         sys.exit()
 
     # アクティブシート名を取得する
     active_sheet_name = xl.ActiveSheet.Name
     print(f"アクティブシート名: {active_sheet_name}")
     if config.EXCEL_TARGET_SHEET_NAME != active_sheet_name:
-        logger.info("対象シートがアクティブでないため処理を終了します")
+        print("対象シートがアクティブでないため処理を終了します", end="")
+        for _ in range(0, 3):
+            print(".", end="", flush=True)
+            time.sleep(0.5)
         sys.exit()
 
     active_sheet = xl.Worksheets(active_sheet_name)
@@ -181,7 +186,7 @@ def main():
     # 列の範囲値を設定する
     length = len(cell_values) + 2
 
-    print("Excelシートへ値の書き込み中...")
+    print("Excelシートへ値の書き込み中... ※Excelの操作はしないでください")
     range_expression = lambda col: f"{col}{h_row+1}:{col}{length}"
     active_sheet.Range(range_expression(inven_col)).Value = inventry_values
     active_sheet.Range(range_expression(cost_col)).Value = cost_values
@@ -202,8 +207,11 @@ def main():
     ####################################
 
     # print(f"Finished time: {finish_time.strftime('%H:%M:%S')}")
-    logger.info("処理を終了します。")
-    time.sleep(2)
+    print("処理を終了します。", end="")
+    for _ in range(0, 3):
+        print(".", end="", flush=True)
+        time.sleep(0.5)
+    sys.exit()
 
 
 if __name__ == "__main__":

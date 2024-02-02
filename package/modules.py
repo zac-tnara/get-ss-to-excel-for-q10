@@ -42,7 +42,7 @@ def get_item_info_from_price_survey_sheet(client, sheet_list):
         pbar = tqdm(
             sheet_list,
             desc="Get item info from price survey sheet",
-            ncols=130,  # 表示全体の幅
+            # ncols=130,  # 表示全体の幅
             unit="ss",
         )
         # データ取得対象シートの存在チェック

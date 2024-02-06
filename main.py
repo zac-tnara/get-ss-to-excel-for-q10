@@ -106,7 +106,11 @@ def main():
 
             # ファイルパスが存在しない場合はメッセージを表示
             if not creds_file_path.exists():
-                messagebox.showerror("Error", "指定されたファイルパスはありません")
+                # messagebox.showerror("Error", "指定されたファイルパスはありません")
+                print("対象シートがアクティブでないため処理を終了します", end="")
+                for _ in range(0, 3):
+                    print(".", end="", flush=True)
+                    time.sleep(0.5)
                 sys.exit()
 
             flow = InstalledAppFlow.from_client_secrets_file(creds_file_path, SCOPES)

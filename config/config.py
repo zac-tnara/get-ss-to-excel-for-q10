@@ -35,7 +35,9 @@ logger_f = logging.getLogger("fileLog")
 
 # 共有フォルダ 各種ファイル格納パス
 # GOOGLE_CREDS_FILE_PATH = r"\\192.168.11.30\共有\通販共有\__dev\get_ss_to_excel_for_q10"
-GOOGLE_CREDS_FILE_PATH = r"\\192.168.1.13\ec_共有フォルダ\__dev\get_ss_to_excel_for_q10"
+GOOGLE_CREDS_FILE_PATH = (
+    r"\\192.168.1.13\zactive共有フォルダ\__ec_dev\get_ss_to_excel_for_q10"
+)
 
 
 ## Google workspace 設定情報
@@ -56,13 +58,13 @@ SS_POSTAGE_COL = "M"
 ## Excel情報
 # データ更新対象Excelシート名
 EXCEL_TARGET_SHEET_NAME = "テスト_価格調査"
-# EXCEL_TARGET_SHEET_NAME ="価格調査"
+# EXCEL_TARGET_SHEET_NAME = "価格調査"
 
 # 見出し行番
 HEADER_ROW = 2
 
 # 列番
-ITEM_CODE_COL = "B"
-INVENTRY_COL = "I"
-COST_COL = "AS"
-POSTAGE_COL = "AT"
+ITEM_CODE_COL = "AQ"
+INVENTRY_COL = "AZ"
+COST_COL = "AX"
+POSTAGE_COL = "BC"

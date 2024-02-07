@@ -43,9 +43,10 @@ logger_f = logging.getLogger("fileLog")
 
 # 共有フォルダ 各種ファイル格納パス
 # GOOGLE_CREDS_FILE_PATH = r"\\192.168.11.30\共有\通販共有\__dev\get_ss_to_excel_for_q10"
-GOOGLE_CREDS_FILE_PATH = (
-    r"\\192.168.1.13\zactive共有フォルダ\__ec_dev\get_ss_to_excel_for_q10"
-)
+# GOOGLE_CREDS_FILE_PATH = (
+#     r"\\192.168.1.13\zactive共有フォルダ\__ec_dev\get_ss_to_excel_for_q10"
+# )
+GOOGLE_CREDS_FILE_PATH = config["path"]["google_creds_file_path"]
 
 
 ## Google workspace 設定情報
@@ -54,13 +55,18 @@ PRICE_SURVEY_SPREADSHEET_ID = "1RlxwHHLfNR99zP8YqG2m41qabe5C_xKVhrj5vm-wc6k"
 
 ## SS情報
 # 見出し行番
-SS_HEADER_ROW = 4
+SS_HEADER_ROW = int(config["ss"]["ss_header_row"])
+# SS_HEADER_ROW = 4
 
 # 列番
-SS_ITEM_CODE_COL = "B"
-SS_INVENTRY_COL = "K"
-SS_COST_COL = "I"
-SS_POSTAGE_COL = "M"
+SS_ITEM_CODE_COL = config["ss"]["ss_item_code_col"]
+SS_INVENTRY_COL = config["ss"]["ss_inventry_col"]
+SS_COST_COL = config["ss"]["ss_cost_col"]
+SS_POSTAGE_COL = config["ss"]["ss_postage_col"]
+# SS_ITEM_CODE_COL = "B"
+# SS_INVENTRY_COL = "K"
+# SS_COST_COL = "I"
+# SS_POSTAGE_COL = "M"
 
 
 ## Excel情報
@@ -69,7 +75,8 @@ EXCEL_TARGET_SHEET_NAME = config["excel"]["target_sheet_name"]
 # EXCEL_TARGET_SHEET_NAME = "価格調査"
 
 # 見出し行番
-HEADER_ROW = 2
+HEADER_ROW = int(config["excel"]["header_row"])
+# HEADER_ROW = 2
 
 # 列番
 ITEM_CODE_COL = config["excel"]["item_code_col"]

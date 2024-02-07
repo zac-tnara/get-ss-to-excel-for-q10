@@ -34,7 +34,8 @@ logger_f = logging.getLogger("fileLog")
 ##-- 環境変数を参照 --##
 
 # 共有フォルダ 各種ファイル格納パス
-GOOGLE_CREDS_FILE_PATH = r"\\192.168.11.30\共有\通販共有\__dev\get_ss_to_excel_for_q10"
+# GOOGLE_CREDS_FILE_PATH = r"\\192.168.11.30\共有\通販共有\__dev\get_ss_to_excel_for_q10"
+GOOGLE_CREDS_FILE_PATH = r"\\192.168.1.13\ec_共有フォルダ\__dev\get_ss_to_excel_for_q10"
 
 
 ## Google workspace 設定情報

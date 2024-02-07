@@ -149,7 +149,9 @@ def main():
     # Excelのアルファベットカラムを数値カラムに変換する。
     column = modules.excel_column_to_number(item_cd_col)
     # Excel の定数を win32com.client.constants で取得
-    xlUp = win32com.client.constants.xlUp
+
+    # xlUp = win32com.client.constants.xlUp
+    xlUp = -4162
     # アクティブシート最下行の取得
     last_row = active_sheet.Cells(active_sheet.Rows.Count, column).End(xlUp).Row
     print(f"Excel{active_sheet_name}シートの最終行: {last_row}")

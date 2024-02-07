@@ -2,6 +2,7 @@
 #! python3
 # config.py - 各種設定用
 
+import configparser
 import logging.config
 import os
 
@@ -17,6 +18,13 @@ load_dotenv()
 is_debug = False
 
 ######################
+
+# ConfigParserオブジェクトを生成
+config = configparser.ConfigParser()
+
+# 設定ファイル読み込み ※iniファイル内に日本語表記が含まれる用の設定
+with open(".\\config\\config.ini", "r", encoding="utf-8") as f:
+    config.read_file(f)
 
 # # ログ設定ファイルの読み込み
 log_ini_path = ".\\config\\logging.ini"
@@ -57,14 +65,19 @@ SS_POSTAGE_COL = "M"
 
 ## Excel情報
 # データ更新対象Excelシート名
-EXCEL_TARGET_SHEET_NAME = "テスト_価格調査"
+EXCEL_TARGET_SHEET_NAME = config["excel"]["target_sheet_name"]
 # EXCEL_TARGET_SHEET_NAME = "価格調査"
 
 # 見出し行番
 HEADER_ROW = 2
 
 # 列番
-ITEM_CODE_COL = "AQ"
-INVENTRY_COL = "AZ"
-COST_COL = "AX"
-POSTAGE_COL = "BC"
+ITEM_CODE_COL = config["excel"]["item_code_col"]
+INVENTRY_COL = config["excel"]["inventry_col"]
+COST_COL = config["excel"]["cost_col"]
+POSTAGE_COL = config["excel"]["postage_col"]
+
+# ITEM_CODE_COL = "AQ"
+# INVENTRY_COL = "AZ"
+# COST_COL = "AX"
+# POSTAGE_COL = "BC"
